@@ -14,7 +14,7 @@ function getProfileInfo($con){
 }
 
 /* Crea uno slug a partire da un testo */
-function slugify2($text, string $divider = '-')
+function slugify($text, string $divider = '-')
 {
   // replace non letter or digits by divider
   $text = preg_replace('~[^\pL\d]+~u', $divider, $text);

@@ -22,16 +22,16 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/menu.php');
         <label for="username">
             <i class="bi bi-person-fill"></i>
         </label>
-        <input type="text" name="username" placeholder="Username" id="username" required>
+        <input class="form-control" type="text" name="username" placeholder="Username" id="username" required>
         <label for="password">
             <i class="bi bi-lock-fill"></i>
         </label>
-        <input type="password" name="password" placeholder="Password" id="password" required>
+        <input class="form-control" type="password" name="password" placeholder="Password" id="password" required>
         <label for="email">
             <i class="bi bi-envelope-fill"></i>
         </label>
-        <input type="email" name="email" placeholder="Email" id="email" required>
-        <input type="submit" value="Register">
+        <input class="form-control"  type="email" name="email" placeholder="Email" id="email" required>
+        <input class="btn btn-primary" type="submit" value="Register">
     </form>
 </div>
 

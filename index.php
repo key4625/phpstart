@@ -5,10 +5,10 @@ include('includes/header.php');
 include('includes/menu.php'); 
 ?>
 <div class="container">
-    <h4>Benvenuti nel blog</h4>
+    <h4>Benvenuti</h4>
     <div class="row">
     <?php
-        foreach(show_index_articles(4) as $article) { ?>
+        foreach(show_articles() as $article) { ?>
             <div class="col-12 col-md-4">
                 <div class="card">                 
                     <img src="<?= ($article['link_image']!=null) ? $article['link_image'] : 'images/placeholder.png' ; ?>" class="card-img-top" alt="...">
@@ -21,5 +21,19 @@ include('includes/menu.php');
             </div>
         <?php } ?>
     </div>
+    <nav class="mt-4" aria-label="paginazione">
+        <ul class="pagination justify-content-center">
+            <?php if ($page > 1): ?>
+            <li class="page-item">
+                <a class="page-link" href="?page=<?=$page-1?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            </li>
+            <?php endif; ?>
+            <?php if ($page*$records_per_page < count_articles()): ?>
+            <li class="page-item">
+                <a class="page-link" href="?page=<?=$page+1?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+            </li>
+            <?php endif; ?>
+        </ul>
+    </nav>
 </div>
 <?php include('includes/footer.php'); ?>

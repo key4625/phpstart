@@ -16,13 +16,14 @@
             </div>
             <div class="navbar-nav">
                 <?php
-
+                    //Sezione link autenticazione
                     if (isset($_SESSION['loggedin'])) {
-                        if(isset($_POST['isAdmin'])) {
+                        if(isset($_SESSION['isAdmin'])) {
                             echo('<a class="nav-link" href="/admin/index.php">Admin</a>');
     
                         }
-                        printf("%s", '<a class="nav-link" href="/auth/logout.php"><i class="bi bi-door-open"></i></a>');
+                        echo '<a class="nav-link" href="/profilo"><i class="bi bi-person-circle"></i> Profilo</a>';
+                        echo '<a class="nav-link" href="/auth/logout.php"><i class="bi bi-door-open"></i> Logout</a>';
                     } else {
                         echo '<a class="nav-link" href="/login">Login</a>';
                         echo '<a class="nav-link" href="/registrazione">Registrati</a>';
@@ -30,6 +31,5 @@
                 ?>
             </div>
         </div>
-        
     </div>
 </nav>

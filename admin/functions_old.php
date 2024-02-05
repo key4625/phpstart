@@ -1,11 +1,12 @@
 <?php
-/* Impostazioni generali */
+/*
+// Impostazioni generali 
 $nome_file = $_SERVER['DOCUMENT_ROOT']."/admin/data/articoli.json";
 $cat_file = $_SERVER['DOCUMENT_ROOT']."/admin/data/categorie.json";
 $utente_scelto = "prova";
 $pass_scelta = password_hash("prova", PASSWORD_BCRYPT);
 
-/*  Apro il file JSON, leggo il contenuto e lo salvo dentro un array chiamato arr_articoli */
+//  Apro il file JSON, leggo il contenuto e lo salvo dentro un array chiamato arr_articoli 
 $arr_articoli = array();
 $arr_categorie = array();
 if(file_exists($nome_file)){
@@ -26,7 +27,7 @@ $_SESSION['articoli_json'] = $arr_articoli;
 $_SESSION['nome_file'] = $nome_file;
 $_SESSION['lista_categorie'] = $arr_categorie;
 
-/* Mostra gli articoli in homepage (max numero numArticles) */
+// Mostra gli articoli in homepage (max numero numArticles) 
 function show_index_articles(int $numArticles) {
     $arr_articoli = $_SESSION['articoli_json'];
     $start = count($arr_articoli)-1;
@@ -40,7 +41,7 @@ function show_index_articles(int $numArticles) {
     return $new_array;
 }
 
-/*  Mostra tutti gli articoli di una categoria */
+//  Mostra tutti gli articoli di una categoria 
 function show_category_articles(int $idCategory) {
     $arr_articoli = $_SESSION['articoli_json'];
     $new_array = array();
@@ -50,7 +51,7 @@ function show_category_articles(int $idCategory) {
     return $new_array;
 }
 
-/*  Mostra il singolo articolo a partire dallo slug*/
+//  Mostra il singolo articolo a partire dallo slug
 function show_article($slug){
     $arr_articoli = $_SESSION['articoli_json'];
     $articolo = null;
@@ -60,7 +61,7 @@ function show_article($slug){
     return $articolo;
 }
 
-/* Scrive un nuovo articolo nel file json */
+// Scrive un nuovo articolo nel file json 
 function create_article($title,$description,$link_image,$category_id) {
     $arr_articoli = $_SESSION['articoli_json'];
     $nome_file = $_SESSION['nome_file'];
@@ -133,7 +134,7 @@ function update_article($title,$slug,$description,$link_image,$category_id) {
     } else return 2;
 }
 
-/* Cancella dal json l'articolo con l'id selezionato */
+// Cancella dal json l'articolo con l'id selezionato 
 function delete_article($slug) {
     $arr_articoli = $_SESSION['articoli_json'];
     $nome_file = $_SESSION['nome_file'];
@@ -144,7 +145,7 @@ function delete_article($slug) {
     return $delete?true:false; 
 }
 
-/* Crea uno slug a partire da un testo */
+// Crea uno slug a partire da un testo 
 function slugify($text, string $divider = '-')
 {
   // replace non letter or digits by divider
@@ -178,7 +179,7 @@ function get_category_name($name){
             break;
     }
 }
-/* Definizione dell'oggetto (o classe) articolo */
+// Definizione dell'oggetto (o classe) articolo 
 class Article {
     public string $slug;
     public string $title;
@@ -187,6 +188,7 @@ class Article {
     public string $link_image;
     public string $date_created;
 }
+*/
 
 
 

@@ -5,8 +5,8 @@ $add_css = '<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="style
 $add_script = '<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>';
 $add_script .= '<script src="/admin/includes/custom-quill.js"></script>';
 
-include('/auth/check_login.php');
-include('includes/header-script.php');
+include('../auth/check_admin.php');
+include('../includes/header-script.php');
 include('../includes/header.php'); 
 include('../includes/menu.php'); 
 
@@ -18,11 +18,11 @@ include('../includes/menu.php');
         $articolo = show_article($_GET['article']);
     } else $articolo = null;
 
-    if(isset($_POST['titolo'])){
+    if(isset($_POST['title'])){
         /* Controllo se devo salvare una immagine */
         $url_img = null;
-
-        if($_FILES["link_image"]!=null){
+        
+        if(($_FILES["link_image"]!=null)&&(($_FILES["link_image"]["size"])>0)){
             $target_dir = $_SERVER['DOCUMENT_ROOT']."/images/";
             $target_file = $target_dir . basename($_FILES["link_image"]["name"]);
             $uploadOk = 1;
@@ -59,12 +59,12 @@ include('../includes/menu.php');
                 }
             }
         }
-        if(($_POST['slug'] != null)&&($_POST['slug'] != "")){   
+        if((isset($_POST['id']))&&($_POST['id'] != null)&&($_POST['id'] != "")){   
              //chiama la funzione update_article passando anche lo slug 
-            $risultato = update_article($_POST['titolo'],$_POST['slug'],$_POST['descrizione'],$url_img,$_POST['category_id']); 
+            $risultato = update_article($_POST['id'],$_POST['title'],$_POST['slug'],$_POST['description'],$url_img,$_POST['category_id']); 
         } else {
             //chiama la funzione create_article che sta dentro il functions_old.php  
-            $risultato = create_article($_POST['titolo'],$_POST['descrizione'],$url_img,$_POST['category_id']); 
+            $risultato = create_article($_POST['title'],$_POST['description'],$url_img,$_POST['category_id']); 
         }
         if($risultato == 1){
             ?>
@@ -86,7 +86,7 @@ include('../includes/menu.php');
         }
         ?>
         <div class="text-center my-4">
-        <a class="btn btn-primary" href="/home"><i class="bi bi-house-door"></i> Torna alla home</a>
+        <a class="btn btn-primary" href="/admin/index.php"><i class="bi bi-house-door"></i> Torna alla home</a>
             <a class="btn btn-primary" href="create.php">Inserisci un altro articolo</a>
         </div>
         <?php   
@@ -96,12 +96,12 @@ include('../includes/menu.php');
             <input type="hidden" name="slug" value="<?= ($articolo!=null) ? $articolo['slug'] : ''; ?>">
             <div class="mb-4">
                 <label>Titolo</label>
-                <input type="text" class="form-control" name="titolo" value="<?= ($articolo!=null) ? $articolo['title'] : ''; ?>">
+                <input type="text" class="form-control" name="title" value="<?= ($articolo!=null) ? $articolo['title'] : ''; ?>">
             </div>
             <div class="mb-4">
                 <label>Descrizione</label>
-                <div id="editor" style="min-height: 200px;"></div>
-                <textarea class="form-control" name="descrizione" row="3" style="display:none" id="hiddenArea"></textarea>
+                <div id="editor" style="min-height: 200px;"><?= ($articolo!=null) ? $articolo['description'] : ''; ?></div>
+                <textarea class="form-control" name="description" row="3" style="display:none" id="hiddenArea" ></textarea>
             </div>
             <div class="mb-4">
                 <label>Categoria</label>
@@ -122,7 +122,9 @@ include('../includes/menu.php');
             <?php if(($articolo!=null)&&($articolo['link_image']!=null)){ ?>
                 <img src="<?= $articolo['link_image']; ?>" class="img-fluid my-4" style="max-width:500px;">
             <?php } ?>
-           
+            <?php if($articolo!=null) { ?>
+                <input type="hidden" name="id" value="<?= $articolo['id']; ?>">
+            <?php } ?>
             <div class="text-center mb-4">
                 <input type="submit" class="btn btn-success" value="Salva">
             </div>

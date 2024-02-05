@@ -1,6 +1,6 @@
 <?php 
 include('includes/header-script.php');
-$articolo_da_visualizzare = show_article($art_slug); 
+$articolo_da_visualizzare = show_article_slug($art_slug); 
 $title = $articolo_da_visualizzare['title'];
 include('includes/header.php');
 include('includes/menu.php');

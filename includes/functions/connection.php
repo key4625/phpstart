@@ -1,16 +1,10 @@
 <?php
-
 if (session_status() === PHP_SESSION_NONE) {
 	session_start();
 }
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-
-
 // Try and connect using the info above.
+global $con;
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 if ( mysqli_connect_errno() ) {
 	// If there is an error with the connection, stop the script and display the error.
