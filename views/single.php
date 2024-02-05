@@ -1,8 +1,12 @@
-<?php include('includes/header.php'); ?>
-<?php include('includes/menu.php'); ?>
+<?php 
+include('includes/header-script.php');
+$articolo_da_visualizzare = show_article($art_slug); 
+$title = $articolo_da_visualizzare['title'];
+include('includes/header.php');
+include('includes/menu.php');
+ ?>
 <div class="container">
     <?php 
-    $articolo_da_visualizzare = show_article($art_slug); 
     echo "<h3>".$articolo_da_visualizzare['title']."</h3>";
     ?>
     <?php 

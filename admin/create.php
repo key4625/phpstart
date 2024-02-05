@@ -6,6 +6,7 @@ $add_script = '<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>';
 $add_script .= '<script src="/admin/includes/custom-quill.js"></script>';
 
 include('/auth/check_login.php');
+include('includes/header-script.php');
 include('../includes/header.php'); 
 include('../includes/menu.php'); 
 

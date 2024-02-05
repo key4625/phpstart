@@ -1,7 +1,5 @@
 <?php 
-$urlSito = "http://webdesign";
-$mailFrom = "michele.cappannari@keysoluzion.it";
-$mailFromName = "Michele Cappannari";
+
 
 function getProfileInfo($con){
     // We don't have the password or email info stored in sessions, so instead, we can get the results from the database.

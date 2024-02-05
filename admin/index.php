@@ -5,6 +5,7 @@ if(isset($_GET['del_article'])){
     $delete = delete_article($_GET['del_article']);
     header("Location:/admin/index.php");
 } else {
+    include('includes/header-script.php');
     include('../includes/header.php'); 
     include('../includes/menu.php'); 
 

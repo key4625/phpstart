@@ -1,5 +1,5 @@
 <?php
-
+include($_SERVER['DOCUMENT_ROOT'].'/includes/header-script.php');
 include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); 
 //se è già autenticato allora lo reindirizzo alla home
 if (isset($_SESSION['loggedin'])) {

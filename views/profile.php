@@ -1,5 +1,6 @@
 <?php 
 $title = "Profilo";
+include($_SERVER['DOCUMENT_ROOT'].'/includes/header-script.php');
 include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); 
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: home');

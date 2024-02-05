@@ -1,5 +1,6 @@
 <?php 
 $title = "Homepage";
+include('includes/header-script.php');
 include('includes/header.php'); 
 include('includes/menu.php'); 
 ?>

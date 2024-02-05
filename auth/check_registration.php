@@ -43,7 +43,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) 
             $subject = 'Attivazione account richiesta';
             $headers = 'From: ' . $mailFrom . "\r\n" . 'Reply-To: ' . $mailFrom . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
             // Update the activation variable below
-            $activate_link = $urlSito.'/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
+            $activate_link = $siteUrl.'/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
             $message = '<p>Prego cliccare sul seguente link per attivare il tuo account: <a href="' . $activate_link . '">' . $activate_link . '</a></p>';
             mail($_POST['email'], $subject, $message, $headers);
             header('Location: /login?msg=Prego controllare la tua email per attivare il tuo account!');

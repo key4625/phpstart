@@ -1,11 +1,14 @@
-<?php include('includes/header.php'); ?>
-<?php include('includes/menu.php');
+<?php include('includes/header-script.php');
 foreach($_SESSION['lista_categorie'] as $sng_cat){
     if($sng_cat['slug'] == $nomecat){
         $idcat = $sng_cat['id'];
         $nomecat = $sng_cat['nome'];
     }
-}
+} 
+$title = $nomecat;
+include('includes/header.php');
+include('includes/menu.php');
+
 ?>
 <div class="container">
     <h4><?php echo $nomecat ?></h4>
