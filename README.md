@@ -14,29 +14,23 @@ Per fare il login come amministratore usare le seguenti credenziali:
 ## Table of Contents
 
 - [Installation](#installation)
-Per installare il software è necessario avere un server web con PHP e MySQL. 
-Per installare il database è necessario eseguire il file `db.sql` che si trova nella cartella principale.
-Per configurare il database è necessario modificare il file `config.php` che si trova nella cartella `includes` con le proprie credenziali.
-
 - [Usage](#usage)
-Se si vogliono creare nuove pagine inserire nel file routes.php il percorso della pagina e il nome del file che si trova nella cartella `pages`.
-
-Per creare nuove funzioni con cui dialogare con il database inserire nel file `functions.php` le funzioni che si vogliono creare.
-
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
 
-[Provide instructions on how to install and set up your project]
+Per installare il software è necessario avere un server web con PHP e MySQL. 
+Per configurare il database è necessario eseguire il file `db.sql` che si trova nella cartella principale.
+Per connettersi con il database è necessario modificare il file `config.php` che si trova nella cartella `includes` con le proprie credenziali.
 
 ## Usage
 
-[Provide instructions on how to use your project]
+Se si vogliono creare nuove pagine inserire nel file routes.php il percorso della pagina e il nome del file che si trova nella cartella `pages`.
 
-## Contributing
+Per ogni classe creata inserire il file nella cartella `includes/models` e includerlo nel file `includes/header-script.php`.
 
-[Provide guidelines for contributing to your project]
+Per creare nuove funzioni che non hanno una diretta associazione con delle classi utilizzare il  `includes/functions/functions.php` 
 
 ## License
 
