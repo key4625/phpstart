@@ -19,11 +19,13 @@
 
                     if (isset($_SESSION['loggedin'])) {
                         if(isset($_POST['isAdmin'])) {
-                            printf("%s", '<a class="nav-link" href="/admin/index.php">Admin</a>');
+                            echo('<a class="nav-link" href="/admin/index.php">Admin</a>');
+    
                         }
                         printf("%s", '<a class="nav-link" href="/auth/logout.php"><i class="bi bi-door-open"></i></a>');
                     } else {
-                        echo '<a class="nav-link" href="/admin/index.php"><i class="bi bi-key" style="font-size: 1.5rem; "></i></a>';
+                        echo '<a class="nav-link" href="/login">Login</a>';
+                        echo '<a class="nav-link" href="/registrazione">Registrati</a>';
                     }
                 ?>
             </div>

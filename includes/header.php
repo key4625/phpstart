@@ -1,8 +1,11 @@
 <?php  
-
-
+//se non è già aperta apro la sessione
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include_once($_SERVER['DOCUMENT_ROOT'].'/connection.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/admin/functions.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/functions.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/admin/functions_old.php');
 ?>
 <!doctype html>
 <html lang="it">

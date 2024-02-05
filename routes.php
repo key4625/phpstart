@@ -6,6 +6,9 @@ require_once __DIR__.'/router.php';
 get('/', 'index.php');
 get('/home', 'index.php');
 get('/chisono', 'chisono.php');
+get('/profilo', '/views/profile.php');
+get('/login', '/auth/login.php');
+get('/registrazione', '/auth/registration.php');
 
 //url categoria e singoli articoli
 get('/categoria/$nomecat', 'category.php');

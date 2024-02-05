@@ -2,7 +2,7 @@
 include('../connection.php');
 if ( !isset($_POST['username'], $_POST['password']) ) {
 	// Could not get the data that should have been sent.
-	exit('Please fill both the username and password fields!');
+    header('Location: login.php?error=1&msg=Prego compilare entrambi i campi!');
 }
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
 if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) {
@@ -28,11 +28,11 @@ if ($stmt->num_rows > 0) {
         header('Location: /home');
     } else {
         // Incorrect password
-        header('Location: login.php?msg=Incorrect username and/or password!');
+        header('Location: login.php?error=1&msg=Username o password errati!');
     }
 } else {
     // Incorrect username
-    header('Location: login.php?msg=Incorrect username and/or password!');
+    header('Location: login.php?error=1&msg=Username o password errati!');
 }
 $stmt->close();
 ?>

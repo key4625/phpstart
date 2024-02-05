@@ -1,7 +1,7 @@
 <?php 
 include_once('../auth/check_login.php');
 if(isset($_GET['del_article'])){
-    include_once($_SERVER['DOCUMENT_ROOT'].'/admin/functions.php');
+    include_once($_SERVER['DOCUMENT_ROOT'].'/admin/functions_old.php');
     $delete = delete_article($_GET['del_article']);
     header("Location:/admin/index.php");
 } else {

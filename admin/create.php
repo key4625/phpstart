@@ -62,7 +62,7 @@ include('../includes/menu.php');
              //chiama la funzione update_article passando anche lo slug 
             $risultato = update_article($_POST['titolo'],$_POST['slug'],$_POST['descrizione'],$url_img,$_POST['category_id']); 
         } else {
-            //chiama la funzione create_article che sta dentro il functions.php  
+            //chiama la funzione create_article che sta dentro il functions_old.php  
             $risultato = create_article($_POST['titolo'],$_POST['descrizione'],$url_img,$_POST['category_id']); 
         }
         if($risultato == 1){
