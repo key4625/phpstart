@@ -8,8 +8,10 @@ error_reporting(E_ALL);
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+//Valore di default per la paginazione
 global $page; 
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
+
 //includo i file necessari
 include_once($_SERVER['DOCUMENT_ROOT'].'/includes/config.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/includes/functions/connection.php');

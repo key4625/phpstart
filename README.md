@@ -1,11 +1,16 @@
 # Project Name
 
-Php Starter Template 
+Php Starter Kit 
 
 ## Description
 
 Un piccolo template per iniziare a scrivere codice in PHP. 
-Sono incluse le funzioni di login e registrazione con un database MySQL.
+Sono incluse le funzioni di:
+
+- login e registrazione con un database MySQL
+- routing di base
+- un sistema di template per creare nuove pagine
+- un sistema di classi per creare nuovi oggetti
 
 Per fare il login come amministratore usare le seguenti credenziali:
 - username: test
@@ -34,5 +39,5 @@ Per creare nuove funzioni che non hanno una diretta associazione con delle class
 
 ## License
 
-[Specify the license under which your project is distributed]
+Licenza MIT
 

@@ -7,6 +7,7 @@ include('includes/menu.php');
 <div class="container">
     <h4>Benvenuti</h4>
     <div class="row">
+    <!-- Mostro gli ultimi articoli e la paginazione -->
     <?php
         foreach(show_articles() as $article) { ?>
             <div class="col-12 col-md-4">
