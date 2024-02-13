@@ -33,4 +33,26 @@ function slugify($text, string $divider = '-')
   }
   return $text;
 }
+
+/**
+     * use this function if you have PHP version 7 or greater
+     * else use the below fuction generateRandomString
+     *
+     * @param int $length
+     * @param string $keyspace
+     * @throws \RangeException
+     * @return string
+     */
+    function getRandomString(int $length = 64, string $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'): string
+    {
+        if ($length < 1) {
+            throw new \RangeException("Length must be a positive integer");
+        }
+        $pieces = [];
+        $max = mb_strlen($keyspace, '8bit') - 1;
+        for ($i = 0; $i < $length; ++ $i) {
+            $pieces[] = $keyspace[random_int(0, $max)];
+        }
+        return implode('', $pieces);
+    }
 ?>

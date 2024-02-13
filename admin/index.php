@@ -34,7 +34,7 @@ if(isset($_GET['del_article'])){
                     <a class="page-link" href="?page=<?=$page-1?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
                 </li>
                 <?php endif; ?>
-                <?php if ($page*$records_per_page < count_articles()): ?>
+                <?php if ($page*$RECORDS_PER_PAGE < count_articles()): ?>
                 <li class="page-item">
                     <a class="page-link" href="?page=<?=$page+1?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
                 </li>

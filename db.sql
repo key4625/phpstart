@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   	`category_id` int DEFAULT 0,
   	`description` text,
     `link_image` varchar(255) DEFAULT '',
+	`trn_date` datetime NOT NULL,
 	`date_created` datetime DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -27,8 +28,14 @@ CREATE TABLE IF NOT EXISTS `categories` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`,`isAdmin`) VALUES  (1, 'test', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'test@test.com',1);
+CREATE TABLE `password_reset_temp` (
+  `email` varchar(250) NOT NULL,
+  `key` varchar(250) NOT NULL,
+  `expDate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `users` (`id`, `username`, `password`, `email`,`isAdmin`) VALUES  (1, 'test', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'test@test.com',1);
+INSERT INTO `users` (`id`, `username`, `password`, `email`,`isAdmin`) VALUES  (2, 'test2', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'key4625@hotmail.com',1);
 INSERT INTO `categories` (`id`, `title`, `slug`, `parent_id`) VALUES (1, 'Generale', 'generale',0), (2, 'Sport', 'sport',0), (3, 'Moda', 'moda',0);
 
 INSERT INTO `articles` (`id`, `slug`, `title`, `category_id`, `description`, `link_image`, `date_created`) VALUES (1, 'prova123', 'Prova123', 1, '<p><br></p>', '/images/mappa.png', '2023-04-04 14:47:52');

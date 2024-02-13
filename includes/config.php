@@ -1,13 +1,17 @@
 <?php 
-global $records_per_page, $siteUrl, $siteName, $mailFrom, $mailFromName, $DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME;
-//Configurazione di base
-$siteUrl = "http://webdesign";
-$siteName = "Web Design";
-$mailFrom = "michele.cappannari@keysoluzion.it";
-$mailFromName = "Michele Cappannari";
 
+global $RECORDS_PER_PAGE, $SITEURL, $SITENAME, $MAILFROM, $MAILFROMNAME, $DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME, $MAILHOST, $MAILUSER, $MAILPASS, $MAILPORT;
+//Configurazione di base
+$SITEURL = "http://webdesign";
+$SITENAME = "Web Design";
+$MAILFROM = "michele.cappannari@keysoluzion.it";
+$MAILFROMNAME = "Michele Cappannari";
+$MAILHOST = "out.postassl.it";
+$MAILUSER = "michele.cappannari@keysoluzion.it";
+$MAILPASS = "key4soluzioni";
+$MAILPORT = "465";
 //Configurazione per la paginazione
-$records_per_page = 5;
+$RECORDS_PER_PAGE = 5;
 
 //Parametri connessione DB
 $DATABASE_HOST = 'localhost';

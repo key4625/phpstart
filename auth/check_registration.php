@@ -41,13 +41,12 @@ if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) 
 
             // Send an email to the user with the activation link
             $subject = 'Attivazione account richiesta';
-            $headers = 'From: ' . $mailFrom . "\r\n" . 'Reply-To: ' . $mailFrom . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
+            $headers = 'From: ' . $MAILFROM . "\r\n" . 'Reply-To: ' . $MAILFROM . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
             // Update the activation variable below
-            $activate_link = $siteUrl.'/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
+            $activate_link = $SITEURL.'/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
             $message = '<p>Prego cliccare sul seguente link per attivare il tuo account: <a href="' . $activate_link . '">' . $activate_link . '</a></p>';
             mail($_POST['email'], $subject, $message, $headers);
             header('Location: /login?msg=Prego controllare la tua email per attivare il tuo account!');
-            //echo 'Prego controllare la tua email per attivare il tuo account!';
         } else {
             // Something is wrong with the SQL statement, so you must check to make sure your users table exists with all three fields.
             header('Location: /registrazione?msg=Errore nella registrazione!');

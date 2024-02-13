@@ -1,11 +1,7 @@
 <?php include('includes/header-script.php');
-foreach($_SESSION['lista_categorie'] as $sng_cat){
-    if($sng_cat['slug'] == $nomecat){
-        $idcat = $sng_cat['id'];
-        $nomecat = $sng_cat['nome'];
-    }
-} 
-$title = $nomecat;
+$categoria_da_visualizzare = show_category_from_slug($nomecat);
+$title = $categoria_da_visualizzare['title'];
+$idcat = $categoria_da_visualizzare['id'];
 include('includes/header.php');
 include('includes/menu.php');
 
@@ -34,7 +30,7 @@ include('includes/menu.php');
                 <a class="page-link" href="?page=<?=$page-1?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
             </li>
             <?php endif; ?>
-            <?php if ($page*$records_per_page < count_articles()): ?>
+            <?php if ($page*$RECORDS_PER_PAGE < count_articles()): ?>
             <li class="page-item">
                 <a class="page-link" href="?page=<?=$page+1?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
             </li>

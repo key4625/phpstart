@@ -45,6 +45,10 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/menu.php');
                             <input class="form-control" id="password" name="password" type="password" size="20">
                             <label class="form-label" for="password">Password</label>
                         </div>
+                        <div class="form-check mb-4">
+                            <a href="/auth/password_recovery.php">Password dimenticata?</a>
+                        </div>
+
                         <input class="w-100 btn btn-lg btn-primary mb-4" name="submit" type="submit" value="Login">
                     </form>
                 </div>

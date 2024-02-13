@@ -12,15 +12,15 @@ class Article {
 function show_articles(){
     global $con;
     global $page;
-    global $records_per_page;
+    global $RECORDS_PER_PAGE;
     // Get the page via GET request (URL param: page), if non exists default the page to 1
     //$page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
     // Number of records to show on each page
-    $num_page = ($page-1)*$records_per_page;
+    $num_page = ($page-1)*$RECORDS_PER_PAGE;
     // Prepare the SQL statement and get records from our contacts table, LIMIT will determine the page
     $stmt = $con->prepare('SELECT * FROM articles ORDER BY date_created DESC LIMIT ?, ?');
     // Bind the parameters
-    $stmt->bind_param('ii', $num_page, $records_per_page);
+    $stmt->bind_param('ii', $num_page, $RECORDS_PER_PAGE);
     $stmt->execute();
     // Fetch the records so we can display them in our template.
     $articles = $stmt->get_result();

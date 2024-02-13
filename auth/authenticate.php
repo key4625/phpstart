@@ -1,8 +1,8 @@
 <?php
 include_once('../includes/config.php');
 include('../includes/functions/connection.php');
-if ( !isset($_POST['username'], $_POST['password']) ) {
-	// Could not get the data that should have been sent.
+if (!isset($_POST['username'], $_POST['password'])) {
+    // Could not get the data that should have been sent.
     header('Location: login.php?error=1&msg=Prego compilare entrambi i campi!');
 }
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
@@ -26,7 +26,7 @@ if ($stmt->num_rows > 0) {
         $_SESSION['name'] = $_POST['username'];
         $_SESSION['id'] = $id;
         $_SESSION['isAdmin'] = $isAdmin;
-        header('Location: /home');
+        header('Location: /home ');
     } else {
         // Incorrect password
         header('Location: login.php?error=1&msg=Username o password errati!');
@@ -36,5 +36,3 @@ if ($stmt->num_rows > 0) {
     header('Location: login.php?error=1&msg=Username o password errati!');
 }
 $stmt->close();
-?>
-
