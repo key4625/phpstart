@@ -8,7 +8,7 @@ $MAILFROM = "michele.cappannari@keysoluzion.it";
 $MAILFROMNAME = "Michele Cappannari";
 $MAILHOST = "out.postassl.it";
 $MAILUSER = "michele.cappannari@keysoluzion.it";
-$MAILPASS = "key4soluzioni";
+$MAILPASS = "" ;
 $MAILPORT = "465";
 //Configurazione per la paginazione
 $RECORDS_PER_PAGE = 5;
