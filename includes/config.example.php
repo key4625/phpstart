@@ -6,10 +6,10 @@ $SITEURL = "http://webdesign";
 $SITENAME = "Web Design";
 
 //Configurazione per l'invio di email
-$MAILFROM = "michele.cappannari@keysoluzioni.it";
-$MAILFROMNAME = "Michele Cappannari";
-$MAILHOST = "out.postassl.it";
-$MAILUSER = "michele.cappannari@keysoluzioni.it";
+$MAILFROM = "mymail@mail.com";
+$MAILFROMNAME = "Nome Mittente";
+$MAILHOST = "smtp.mail.com";
+$MAILUSER = "mymail@mail.com";
 $MAILPASS = "" ;
 $MAILPORT = "465";
 
