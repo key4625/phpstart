@@ -2,8 +2,9 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include_once($_SERVER['DOCUMENT_ROOT'].'/connection.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/functions.php');
+include_once('../includes/config.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/includes/functions/connection.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/includes/functions/functions.php');
 
 if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 	header('Location: /registrazione?msg=Email non valida!');

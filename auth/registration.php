@@ -18,7 +18,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/menu.php');
         </div>
     <?php } ?>
     <h1>Register</h1>
-    <form action=" " method="post" autocomplete="off">
+    <form action="/auth/check_registration.php" method="post" autocomplete="off">
         <label for="username">
             <i class="bi bi-person-fill"></i>
         </label>
