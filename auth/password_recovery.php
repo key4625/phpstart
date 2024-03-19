@@ -82,9 +82,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/menu.php');
             $mail->Password = $MAILPASS; //Enter your password here
             $mail->Port = $MAILPORT;
             $mail->IsHTML(true);
-            $mail->From = $MAILFROM ;
+            $mail->From = $MAILFROM;
             $mail->FromName = $MAILFROMNAME;
-            $mail->Sender = $$MAILFROM; // indicates ReturnPath header
+            $mail->Sender = $MAILFROM; // indicates ReturnPath header
             $mail->Subject = "Recupero Password - ".$SITENAME;
             $mail->Body = $output;
             $mail->AddAddress($email_to);

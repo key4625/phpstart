@@ -27,7 +27,8 @@ Per fare il login come amministratore usare le seguenti credenziali:
 
 Per installare il software è necessario avere un server web con PHP e MySQL. 
 Per configurare il database è necessario eseguire il file `db.sql` che si trova nella cartella principale.
-Per connettersi con il database è necessario modificare il file `config.php` che si trova nella cartella `includes` con le proprie credenziali.
+Per configurare il sistema è necessario rinominare il file che si trova in includes/config.example.php in config.php e inserire le proprie credenziali.
+
 
 ## Usage
 
