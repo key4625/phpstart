@@ -22,6 +22,8 @@ include('includes/menu.php');
             </div>
         <?php } ?>
     </div>
+
+    <!-- paginazione -->
     <nav class="mt-4" aria-label="paginazione">
         <ul class="pagination justify-content-center">
             <?php if ($page > 1): ?>
@@ -36,5 +38,6 @@ include('includes/menu.php');
             <?php endif; ?>
         </ul>
     </nav>
+    <!-- fine paginazione -->
 </div>
 <?php include('includes/footer.php'); ?>

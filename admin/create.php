@@ -107,9 +107,9 @@ include('../includes/menu.php');
                 <label>Categoria</label>
                 <select class="form-control" name="category_id">
                     <?php
-                    foreach($_SESSION['lista_categorie'] as $sng_cat){ ?>
-                        <option value="<?= $sng_cat['id'] ?>" <?= (($articolo!=null)&&($articolo['category_id']==$sng_cat['id'])) ? "selected=selected" : ""; ?> ><?= $sng_cat['nome'] ?></option>
-                   <?php
+                    foreach(show_categories() as $sng_cat){ ?>
+                        <option value="<?= $sng_cat['id'] ?>" <?= (($articolo!=null)&&($articolo['category_id']==$sng_cat['id'])) ? "selected=selected" : ""; ?> ><?= $sng_cat['title'] ?></option>
+                        <?php
                     }
                     ?>
                     

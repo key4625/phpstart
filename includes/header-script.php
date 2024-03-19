@@ -13,10 +13,12 @@ global $page;
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 
 //includo i file necessari
+//file di configurazione
 include_once($_SERVER['DOCUMENT_ROOT'].'/includes/config.php');
+//connessione al database
 include_once($_SERVER['DOCUMENT_ROOT'].'/includes/functions/connection.php');
+//funzioni generiche
 include_once($_SERVER['DOCUMENT_ROOT'].'/includes/functions/functions.php');
-//include_once($_SERVER['DOCUMENT_ROOT'].'/admin/functions_old.php');
 
 //includo le classi
 include_once($_SERVER['DOCUMENT_ROOT'].'/includes/models/Category.php');

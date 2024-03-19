@@ -31,7 +31,7 @@ Per connettersi con il database è necessario modificare il file `config.php` ch
 
 ## Usage
 
-Se si vogliono creare nuove pagine inserire nel file routes.php il percorso della pagina e il nome del file che si trova nella cartella `pages`.
+Se si vogliono creare nuove pagine inserire nel file routes.php il percorso della pagina e il nome del file che si trova nella cartella `pages`. Il plugin utilizzato è spiegato in questa guida
 
 Per ogni classe creata inserire il file nella cartella `includes/models` e includerlo nel file `includes/header-script.php`.
 

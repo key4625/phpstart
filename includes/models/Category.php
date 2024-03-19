@@ -32,3 +32,10 @@ function show_category_from_slug($slug){
     $category = $stmt->get_result();
     return $category->fetch_assoc();
 }
+function show_categories(){
+    global $con;
+    $stmt = $con->prepare('SELECT * FROM categories');
+    $stmt->execute();
+    $categories = $stmt->get_result();
+    return $categories->fetch_all(MYSQLI_ASSOC);
+}
