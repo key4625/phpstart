@@ -55,4 +55,6 @@ function slugify($text, string $divider = '-')
         }
         return implode('', $pieces);
     }
+
+    
 ?>

@@ -2,8 +2,10 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include_once($_SERVER['DOCUMENT_ROOT'].'/connection.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/functions.php');
+require_once $_SERVER['DOCUMENT_ROOT'].'/router.php';
+include_once('../includes/config.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/includes/functions/connection.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/includes/functions/functions.php');
 
 if (isset($_GET['email'], $_GET['code'])) {
 	if ($stmt = $con->prepare('SELECT * FROM users WHERE email = ? AND activation_code = ?')) {
@@ -18,10 +20,11 @@ if (isset($_GET['email'], $_GET['code'])) {
 				$newcode = 'activated';
 				$stmt->bind_param('sss', $newcode, $_GET['email'], $_GET['code']);
 				$stmt->execute();
-                echo 'Il tuo account è stato attivato! Ora puoi fare il <a href="/login">login</a>!';
+				header('Location: /login?msg=Il tuo account è stato attivato! Ora puoi fare il login!');
+				//exit;
 			}
 		} else {
-            echo 'Il tuo account è già attivato o non esiste!';
+			header('Location: /login?err=1&&msg=Il tuo account è già attivato o non esiste!');
 		}
 	}
 }

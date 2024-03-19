@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/router.php';
 include($_SERVER['DOCUMENT_ROOT'].'/includes/header-script.php');
 include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); 
 //se è già autenticato allora lo reindirizzo alla home
@@ -31,6 +32,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/menu.php');
             <i class="bi bi-envelope-fill"></i>
         </label>
         <input class="form-control"  type="email" name="email" placeholder="Email" id="email" required>
+        <?php set_csrf() ?>
         <input class="btn btn-primary" type="submit" value="Register">
     </form>
 </div>

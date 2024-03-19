@@ -3,6 +3,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+require_once $_SERVER['DOCUMENT_ROOT'].'/router.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/vendor/PHPMailer/src/Exception.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/vendor/PHPMailer/src/PHPMailer.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/vendor/PHPMailer/src/SMTP.php';
@@ -65,14 +66,13 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/menu.php');
             La tua password non verrà reimpostata. Tuttavia, potresti voler accedere al tuo account e cambiare la tua password di sicurezza poiché qualcuno potrebbe averla indovinata.</p>';
             $output .= '<p>Grazie,</p>';
             $output .= '<p>Il Team</p>';
-            $body = $output;
-            $subject = "Recupero Password - ".$SITENAME;
+           
+         
 
             $email_to = $email;
-            $fromserver = $MAILFROM ;
         
             $mail = new PHPMailer();
-            $mail->SMTPDebug = 1;  
+            $mail->SMTPDebug = 0;  
             $mail->IsSMTP();
             $mail->SMTPAuth = true;                // enable SMTP authentication
             //$mail->SMTPSecure = "tls"; 
@@ -84,9 +84,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/menu.php');
             $mail->IsHTML(true);
             $mail->From = $MAILFROM ;
             $mail->FromName = $MAILFROMNAME;
-            $mail->Sender = $fromserver; // indicates ReturnPath header
-            $mail->Subject = $subject;
-            $mail->Body = $body;
+            $mail->Sender = $$MAILFROM; // indicates ReturnPath header
+            $mail->Subject = "Recupero Password - ".$SITENAME;
+            $mail->Body = $output;
             $mail->AddAddress($email_to);
             if (!$mail->Send()) {
                 echo "Errore mailer: " . $mail->ErrorInfo;

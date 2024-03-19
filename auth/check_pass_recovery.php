@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/router.php';
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/header-script.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php');
 if (isset($_SESSION['loggedin'])) {

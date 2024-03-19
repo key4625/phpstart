@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/router.php';
 include($_SERVER['DOCUMENT_ROOT'].'/includes/header-script.php');
 include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); 
 if (isset($_SESSION['loggedin'])) {
@@ -48,7 +49,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/menu.php');
                         <div class="form-check mb-4">
                             <a href="/auth/password_recovery.php">Password dimenticata?</a>
                         </div>
-
+                        <?php set_csrf() ?>
                         <input class="w-100 btn btn-lg btn-primary mb-4" name="submit" type="submit" value="Login">
                     </form>
                 </div>
