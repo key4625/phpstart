@@ -12,12 +12,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/menu.php');
 // form per la registrazione
 ?>
 <div class="container register">
-    <?php // spazio dei messaggi
-    if(isset($_GET['msg'])){ ?>
-        <div class="alert alert-danger" role="alert">
-            <?= $_GET['msg'] ?>
-        </div>
-    <?php } ?>
+    <?php if(isset($_GET['msg'])){ 
+        if(isset($_GET['error']) && $_GET['error'] == 1){
+            echo '<div class="alert alert-danger" role="alert">';
+        } else {
+            echo '<div class="alert alert-success" role="alert">';
+        }
+        echo $_GET['msg']."</div>"; 
+    } ?>
     <h1>Register</h1>
     <form action="/auth/check_registration.php" method="post" autocomplete="off">
         <label for="username">

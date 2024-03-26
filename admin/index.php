@@ -1,5 +1,5 @@
 <?php 
-include_once('../auth/check_admin.php');
+require_once $_SERVER['DOCUMENT_ROOT'].'/auth/check_admin.php';
 include('../includes/header-script.php');
 if(isset($_GET['del_article'])){
     //include_once($_SERVER['DOCUMENT_ROOT'].'/admin/functions_old.php');

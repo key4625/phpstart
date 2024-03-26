@@ -20,7 +20,7 @@ if ($stmt = $con->prepare('SELECT id, password, isAdmin, activation_code FROM us
 if ($stmt->num_rows > 0) {
     $stmt->bind_result($id, $password, $isAdmin, $activation_code);
     $stmt->fetch();
-    if($activation_code == 'activated'){
+    if(($ENABLE_ACTIVATION_CODE == 0)||($activation_code == 'activated')){
         // Account exists, now we verify the password.
         // Note: remember to use password_hash in your registration file to store the hashed passwords.
         if (password_verify($_POST['password'], $password)) {
