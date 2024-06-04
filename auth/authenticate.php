@@ -31,6 +31,11 @@ if ($stmt->num_rows > 0) {
             $_SESSION['name'] = $_POST['username'];
             $_SESSION['id'] = $id;
             $_SESSION['isAdmin'] = $isAdmin;
+
+             // Generate a secure token
+            $token = bin2hex(openssl_random_pseudo_bytes(16));
+            $_SESSION['token'] = $token;
+
             header('Location: /home ');
         } else {
             // Incorrect password

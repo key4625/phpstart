@@ -56,6 +56,7 @@ function show_article_slug($slug){
     return $article->fetch_assoc();
 }
 
+
 function create_article($title,$description,$link_image,$category_id){
     global $con;
     $nuovo_articolo = new Article();

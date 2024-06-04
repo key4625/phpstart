@@ -16,5 +16,7 @@ get('/registrazione', '/auth/registration.php');
 get('/categoria/$nomecat', '/views/cat-article.php');
 get('/articoli/$art_slug', '/views/article.php');
 
+
+
 // Questa è per le pagine che non esistono
 any('/404','404.php');

@@ -1,7 +1,7 @@
 <?php 
 
 
-function getProfileInfo($con){
+/*function getProfileInfo($con){
     // We don't have the password or email info stored in sessions, so instead, we can get the results from the database.
     $stmt = $con->prepare('SELECT password, email FROM users WHERE id = ?');
     // In this case we can use the account ID to get the account info.
@@ -11,6 +11,19 @@ function getProfileInfo($con){
     $stmt->fetch();
     $stmt->close();
     return([$password, $email]);
+}*/
+
+function getProfileInfo() {
+    global $con;
+    if(!isset($_SESSION['id'])){
+        return null;
+    } else {
+        $stmt = $con->prepare('SELECT * FROM users WHERE id = ?');
+        $stmt->bind_param('s', $_SESSION['id']);
+        $stmt->execute();
+        $article = $stmt->get_result();
+        return $article->fetch_assoc();
+    }
 }
 
 /* Crea uno slug a partire da un testo */
